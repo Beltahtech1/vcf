@@ -15,6 +15,13 @@ body {
   width: 95%;
   max-width: 500px;
   text-align: center;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Smooth transition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Hero */
@@ -36,6 +43,20 @@ body {
   margin: 20px auto;
 }
 
+/* Name group */
+.name-group {
+  display: flex;
+  gap: 10px;
+}
+.name-group input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
 /* Phone input group */
 .phone-group {
   display: flex;
@@ -44,12 +65,13 @@ body {
   width: 90%;
 }
 .phone-group select {
-  flex: 0 0 30%;
+  flex: 0 0 35%;
   padding: 12px;
   border-radius: 10px 0 0 10px;
   border: none;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+  background: rgba(255,255,255,0.15);
+  color: #00ffff;
+  font-weight: bold;
   appearance: none;
 }
 .phone-group input {
@@ -62,7 +84,7 @@ body {
 }
 
 /* Liquid buttons */
-.liquid-btn {
+.liquid-btn, .admin-btn {
   position: relative;
   padding: 12px 30px;
   margin: 10px;
@@ -73,8 +95,10 @@ body {
   background: linear-gradient(135deg, #00ffff, #0077ff);
   cursor: pointer;
   transition: transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
 }
-.liquid-btn:hover {
+.liquid-btn:hover, .admin-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px cyan;
 }
@@ -104,10 +128,4 @@ body {
   top: -2px;
   left: 3px;
   color: cyan;
-}
-
-/* Admin box */
-.admin-box h2 {
-  color: #00ffff;
-  margin-bottom: 15px;
 }
