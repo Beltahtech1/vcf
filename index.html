@@ -13,32 +13,36 @@
       <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
       <p class="subtitle">Join the movement — 1,000 verified members</p>
     </header>
-
     <!-- Registration Form -->
-    <section class="form glass">
-      <h2>Register</h2>
-      <form onsubmit="registerUser(event)">
-        <div class="name-group">
-          <input type="text" id="firstName" placeholder="First Name" required>
-          <input type="text" id="lastName" placeholder="Last Name" required>
-        </div>
+<section class="form glass">
+  <h2>Register</h2>
+  <form onsubmit="registerUser(event)">
+    <div class="name-group">
+      <input type="text" id="firstName" placeholder="First Name" required>
+      <input type="text" id="lastName" placeholder="Last Name" required>
+    </div>
 
-        <!-- Phone input with country selector -->
-<div class="phone-group">
-  <select id="countryCode" onchange="autoFillCode()"></select>
-  <input type="text" id="phone" placeholder="WhatsApp Number" required>
-</div>
+    <!-- Country search + selector -->
+    <div id="countrySearchBox">
+      <input type="text" id="searchCountry" placeholder="Search country..." onkeyup="filterCountries()">
+    </div>
 
-        <!-- Modern styled recaptcha -->
-        <label class="recaptcha">
-          <input type="checkbox" required>
-          <span class="checkmark"></span> I am Human
-        </label>
+    <!-- Phone input with country selector -->
+    <div class="phone-group">
+      <select id="countryCode" onchange="handleCountrySelect()"></select>
+      <input type="text" id="phone" placeholder="WhatsApp Number" required>
+    </div>
 
-        <button type="submit" class="liquid-btn">Submit</button>
-      </form>
-      <div id="success"></div>
-    </section>
+    <!-- Modern styled recaptcha -->
+    <label class="recaptcha">
+      <input type="checkbox" required>
+      <span class="checkmark"></span> I am Human
+    </label>
+
+    <button type="submit" class="liquid-btn">Submit</button>
+  </form>
+  <div id="success"></div>
+</section>
 
     <footer>
       <p>&copy; 2026 Beltah VCF GAINS</p>
