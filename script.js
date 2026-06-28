@@ -32,13 +32,13 @@ function registerUser(e) {
   // Save new user
   users.push({ name: firstName + " " + lastName, phone: fullNumber });
   saveUsers();
-
-  // Success message
-  document.getElementById("success").innerHTML = `
-    ✅ Registration successful! <br>
-    <span class="success-whatsapp">📱 WhatsApp Ready</span><br>
-    <a href="https://chat.whatsapp.com/example" target="_blank">Join WhatsApp Public Group</a>
-  `;
+document.getElementById("success").innerHTML = `
+  ✅ Registration successful! <br>
+  <span class="success-whatsapp">📱 WhatsApp Ready</span><br>
+  <button onclick="window.open('https://chat.whatsapp.com/example','_blank')" class="liquid-btn">
+    Join WhatsApp Group
+  </button>
+`;
 
   // Launch celebration
   launchCelebration();
