@@ -53,6 +53,74 @@ body {
   transition: all 0.5s ease;
   box-shadow: 0 0 12px rgba(0,255,255,0.3);
 }
+/* Neon border around page */
+.neon-border {
+  border: 4px solid #00ffff;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00ffff, 0 0 50px #0077ff;
+  padding: 20px;
+}
+
+/* Logo glow only */
+.main-logo {
+  width: 220px;
+  height: auto;
+  border-radius: 20px;
+  animation: logoGlow 12s ease-in-out infinite;
+}
+@keyframes logoGlow {
+  0% { box-shadow: 0 0 15px rgba(0,255,255,0.3), 0 0 30px rgba(255,0,255,0.2); }
+  50% { box-shadow: 0 0 35px rgba(0,255,255,0.5), 0 0 70px rgba(255,0,255,0.4); }
+  100% { box-shadow: 0 0 15px rgba(0,255,255,0.3), 0 0 30px rgba(255,0,255,0.2); }
+}
+
+/* Modern input boxes */
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 12px;
+  border: 2px solid rgba(0,255,255,0.4);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-wrapper input:hover,
+.input-wrapper input:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 12px rgba(0,255,255,0.5);
+}
+
+/* Row layout */
+.row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.input-wrapper.small { flex: 0 0 80px; }
+.input-wrapper { flex: 1; }
+
+/* Modern glass buttons */
+.liquid-btn, .admin-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(0,255,255,0.6);
+  backdrop-filter: blur(12px);
+  transition: all 0.5s ease;
+  box-shadow: 0 0 12px rgba(0,255,255,0.3);
+}
+.liquid-btn:hover, .admin-btn:hover {
+  transform: scale(1.05);
+  border-color: #00ffff;
+  box-shadow: 0 0 25px rgba(0,255,255,0.6), 0 0 50px rgba(0,119,255,0.4);
+  background: rgba(255,255,255,0.15);
+}
 
 /* Hover glowing effect */
 .liquid-btn:hover, .admin-btn:hover {
