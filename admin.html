@@ -7,16 +7,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section class="glass">
-    <h2>Admin Login</h2>
-    <input type="password" id="adminPass" placeholder="Enter Password">
-    <button onclick="adminLogin()" class="liquid-btn">Login</button>
-    <div id="adminContent" style="display:none;">
-      <h3>Verified Members</h3>
-      <div id="adminList"></div>
-      <button onclick="downloadVCF()" class="liquid-btn">Download VCF</button>
-    </div>
-  </section>
+  <div class="container">
+    <section class="glass admin-box">
+      <h2>Admin Login</h2>
+      <input type="password" id="adminPass" placeholder="Enter Password">
+      <button onclick="adminLogin()" class="liquid-btn">Login</button>
+      <div id="adminContent" style="display:none;">
+        <h3>Verified Members</h3>
+        <div id="adminList"></div>
+        <button onclick="downloadVCF()" class="liquid-btn">Download VCF</button>
+      </div>
+    </section>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
