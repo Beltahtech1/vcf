@@ -1,33 +1,25 @@
-let registered = 0;
-const target = 1000;
-const users = new Set();
+// Persistent storage
+let users = JSON.parse(localStorage.getItem("vcfUsers")) || [];
 
-function updateStats() {
-  document.getElementById("registered").textContent = registered;
-  document.getElementById("remaining").textContent = target - registered;
-  document.getElementById("progress").style.width = (registered / target * 100) + "%";
-
-  if (registered >= target) {
-    const btn = document.getElementById("downloadBtn");
-    btn.disabled = false;
-    btn.textContent = "Download VCF";
-    btn.onclick = downloadVCF;
-  }
+function saveUsers() {
+  localStorage.setItem("vcfUsers", JSON.stringify(users));
 }
 
 function registerUser(e) {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
+  const code = document.getElementById("countryCode").value;
 
-  if (users.has(phone)) {
+  const fullNumber = code + phone;
+
+  if (users.find(u => u.phone === fullNumber)) {
     alert("This number is already registered!");
     return;
   }
 
-  users.add(phone);
-  registered++;
-  updateStats();
+  users.push({ name, phone: fullNumber });
+  saveUsers();
 
   document.getElementById("success").innerHTML = `
     ✅ Registration successful! <br>
@@ -35,20 +27,26 @@ function registerUser(e) {
   `;
 }
 
-function showCountries(region) {
-  const list = document.getElementById("country-list");
-  list.innerHTML = `<p>Showing ${region} countries (demo)...</p>`;
+// Admin login
+function adminLogin() {
+  const pass = document.getElementById("adminPass").value;
+  if (pass === "Beltah@2026") {
+    document.getElementById("adminContent").style.display = "block";
+    showAdminList();
+  } else {
+    alert("Wrong password!");
+  }
 }
 
-function showContacts() {
-  const list = document.getElementById("contacts-list");
-  list.innerHTML = Array.from(users).map(u => `<p>${u}</p>`).join("");
+function showAdminList() {
+  const list = document.getElementById("adminList");
+  list.innerHTML = users.map(u => `<p>${u.name} - ${u.phone}</p>`).join("");
 }
 
 function downloadVCF() {
-  let vcf = "BEGIN:VCARD\nVERSION:3.0\n";
-  users.forEach(phone => {
-    vcf += `FN:Verified User\nTEL:${phone}\nEND:VCARD\nBEGIN:VCARD\nVERSION:3.0\n`;
+  let vcf = "";
+  users.forEach(u => {
+    vcf += `BEGIN:VCARD\nVERSION:3.0\nFN:${u.name}\nTEL:${u.phone}\nEND:VCARD\n`;
   });
   const blob = new Blob([vcf], { type: "text/vcard" });
   const link = document.createElement("a");
@@ -56,3 +54,30 @@ function downloadVCF() {
   link.download = "vcf-gains.vcf";
   link.click();
 }
+
+// Country list
+function loadCountries() {
+  const select = document.getElementById("countryCode");
+  countries.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c.dial_code;
+    opt.textContent = `${c.flag} ${c.name} (${c.dial_code})`;
+    select.appendChild(opt);
+  });
+}
+
+function filterCountries() {
+  const search = document.getElementById("searchCountry").value.toLowerCase();
+  const select = document.getElementById("countryCode");
+  select.innerHTML = "";
+  countries.filter(c => c.name.toLowerCase().includes(search)).forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c.dial_code;
+    opt.textContent = `${c.flag} ${c.name} (${c.dial_code})`;
+    select.appendChild(opt);
+  });
+}
+
+window.onload = () => {
+  if (document.getElementById("countryCode")) loadCountries();
+};
