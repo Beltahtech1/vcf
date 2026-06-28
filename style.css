@@ -1,52 +1,42 @@
-/* Background + container */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #141e30, #243b55);
-  color: #f0f0f0;
+/* Phone input group */
+.phone-group {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  margin: 15px auto;
+  width: 90%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.container {
-  width: 95%;
-  max-width: 500px;
-  text-align: center;
-  animation: fadeIn 1.2s ease;
+/* Country selector */
+.phone-group select {
+  flex: 0 0 35%;
+  padding: 12px;
+  border: none;
+  background: #fff;           /* White background */
+  color: #000;                /* Black text for visibility */
+  font-weight: bold;
+  font-size: 0.95em;
+  border-radius: 10px 0 0 10px;
+  appearance: none;           /* Modern dropdown arrow */
+  cursor: pointer;
 }
 
-/* Smooth transition */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Phone input */
+.phone-group input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-radius: 0 10px 10px 0;
 }
 
-/* Hero */
-.hero h1 {
-  color: #00ffff;
-  text-shadow: 0 0 15px #00ffff;
-}
-.subtitle {
-  color: #ccc;
-}
-
-/* Glass effect */
-.glass {
-  background: rgba(255,255,255,0.08);
-  border-radius: 15px;
-  backdrop-filter: blur(12px);
-  padding: 20px;
-  box-shadow: 0 0 25px rgba(0,255,255,0.3);
-  margin: 20px auto;
-}
-
-/* Name group */
+/* Name inputs side by side */
 .name-group {
   display: flex;
   gap: 10px;
+  margin-bottom: 15px;
 }
 .name-group input {
   flex: 1;
@@ -57,75 +47,28 @@ body {
   color: #fff;
 }
 
-/* Phone input group */
-.phone-group {
-  display: flex;
-  align-items: center;
-  margin: 15px auto;
-  width: 90%;
-}
-.phone-group select {
-  flex: 0 0 35%;
-  padding: 12px;
-  border-radius: 10px 0 0 10px;
-  border: none;
-  background: rgba(255,255,255,0.15);
-  color: #00ffff;
-  font-weight: bold;
-  appearance: none;
-}
-.phone-group input {
-  flex: 1;
-  padding: 12px;
-  border-radius: 0 10px 10px 0;
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-}
-
-/* Liquid buttons */
-.liquid-btn, .admin-btn {
-  position: relative;
-  padding: 12px 30px;
-  margin: 10px;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #00ffff, #0077ff);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  text-decoration: none;
+/* Admin login button */
+.admin-btn {
   display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #00ffff, #0077ff);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-.liquid-btn:hover, .admin-btn:hover {
+.admin-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px cyan;
 }
 
-/* Modern recaptcha */
-.recaptcha {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 15px 0;
-  color: #ccc;
+/* Page transition */
+.container {
+  animation: fadeIn 1.2s ease;
 }
-.recaptcha input {
-  display: none;
-}
-.recaptcha .checkmark {
-  width: 20px;
-  height: 20px;
-  border: 2px solid cyan;
-  border-radius: 5px;
-  margin-right: 10px;
-  position: relative;
-}
-.recaptcha input:checked + .checkmark::after {
-  content: "✔";
-  position: absolute;
-  top: -2px;
-  left: 3px;
-  color: cyan;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
