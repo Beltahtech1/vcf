@@ -21,13 +21,60 @@ function registerUser(e) {
     return;
   }
 
+  // Confirm reCAPTCHA
+  if (!document.getElementById("humanCheck").checked) {
+    alert("Please confirm you are human!");
+    return;
+  }
+
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const code = document.getElementById("countryCode").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  const fullNumber = "+" + code + phone;
+
+  // Prevent duplicates
+  let users = JSON.parse(localStorage.getItem("vcfUsers")) || [];
+  if (users.find(u => u.phone === fullNumber)) {
+    alert("This number is already registered!");
+    return;
+  }
+
   users.push({ name: firstName + " " + lastName, phone: fullNumber });
   localStorage.setItem("vcfUsers", JSON.stringify(users));
 
+  // Success message
   document.getElementById("success").innerHTML = `
     ✅ Registration successful! <br>
     <a href="https://chat.whatsapp.com/example" target="_blank">Join WhatsApp Public Group</a>
   `;
+
+  // Celebration animations
+  launchCelebration();
+}
+
+function launchCelebration() {
+  // Balloons
+  for (let i = 0; i < 5; i++) {
+    const balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.textContent = "🎈";
+    balloon.style.left = (10 + i * 15) + "%";
+    document.body.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 4000);
+  }
+
+  // Fireworks
+  for (let i = 0; i < 3; i++) {
+    const firework = document.createElement("div");
+    firework.className = "firework";
+    firework.textContent = "🎆";
+    firework.style.left = (30 + i * 20) + "%";
+    firework.style.top = "50%";
+    document.body.appendChild(firework);
+    setTimeout(() => firework.remove(), 2000);
+  }
 }
 
 // Admin login
