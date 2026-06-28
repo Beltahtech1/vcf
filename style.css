@@ -126,6 +126,19 @@ body {
   }
 }
 
+.row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.input-wrapper.small {
+  flex: 0 0 80px; /* small width for country code */
+}
+
+.input-wrapper {
+  flex: 1;
+}
 
 /* Smooth cinematic entrance */
 .container {
