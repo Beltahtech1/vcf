@@ -3,30 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VCF Gains</title>
+  <title>Beltah VCF GAINS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to VCF Gains</h1>
-    <p>Your site is now live on Netlify!</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
   </header>
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>This is a simple static site deployed using Netlify. You can add more content here.</p>
-    </section>
+  <!-- Live Stats -->
+  <section class="stats">
+    <h2>Goal Tracker</h2>
+    <div class="numbers">
+      <p>Registered: <span id="registered">0</span></p>
+      <p>Remaining: <span id="remaining">1000</span></p>
+      <p>Target: 1000</p>
+    </div>
+    <div class="progress-bar">
+      <div id="progress"></div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Interactive Demo</h2>
-      <button onclick="showMessage()">Click Me</button>
-      <p id="output"></p>
-    </section>
-  </main>
+  <!-- Regional Entry Buttons -->
+  <section class="regions">
+    <button onclick="showCountries('Africa')">Africa Registration</button>
+    <button onclick="showCountries('International')">International Registration</button>
+    <div id="country-list"></div>
+  </section>
+
+  <!-- Registration Form -->
+  <section class="form">
+    <h2>Register</h2>
+    <form onsubmit="registerUser(event)">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="text" id="phone" placeholder="WhatsApp Number" required>
+      <label><input type="checkbox" required> Verify I am Human</label>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="success"></div>
+  </section>
+
+  <!-- VCF Download -->
+  <section class="download">
+    <button id="downloadBtn" disabled>Unlocks at 1,000 members</button>
+  </section>
+
+  <!-- Verified Contacts -->
+  <section class="contacts">
+    <button onclick="showContacts()">View Verified Members</button>
+    <div id="contacts-list"></div>
+  </section>
 
   <footer>
-    <p>&copy; 2026 VCF Gains</p>
+    <p>&copy; 2026 Beltah VCF GAINS</p>
   </footer>
 
   <script src="script.js"></script>
