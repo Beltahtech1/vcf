@@ -10,7 +10,7 @@
   <!-- Radar background -->
   <div id="radar-root"></div>
 
-  <div class="container fade-in">
+  <div class="container fade-in neon-border">
     <!-- Hero -->
     <header class="hero">
       <div class="logo-row">
@@ -24,28 +24,28 @@
     <section class="form glass">
       <h2>Register</h2>
       <form onsubmit="registerUser(event)">
-        <!-- First Name -->
-        <div class="input-wrapper">
-          <input type="text" id="firstName" required placeholder=" ">
-          <label for="firstName">First Name</label>
+        <!-- Name row -->
+        <div class="row">
+          <div class="input-wrapper">
+            <input type="text" id="firstName" required placeholder=" ">
+            <label for="firstName">First Name</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="text" id="lastName" required placeholder=" ">
+            <label for="lastName">Last Name</label>
+          </div>
         </div>
 
-        <!-- Last Name -->
-        <div class="input-wrapper">
-          <input type="text" id="lastName" required placeholder=" ">
-          <label for="lastName">Last Name</label>
-        </div>
-
-        <!-- Country Code -->
-        <div class="input-wrapper">
-          <input type="text" id="countryCode" required placeholder=" ">
-          <label for="countryCode">Country Code</label>
-        </div>
-
-        <!-- Phone Number -->
-        <div class="input-wrapper">
-          <input type="text" id="phone" required placeholder=" ">
-          <label for="phone">Phone Number (no 0)</label>
+        <!-- Phone row -->
+        <div class="row">
+          <div class="input-wrapper small">
+            <input type="text" id="countryCode" required placeholder=" ">
+            <label for="countryCode">Code</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="text" id="phone" required placeholder=" ">
+            <label for="phone">Phone Number (no 0)</label>
+          </div>
         </div>
 
         <!-- Recaptcha -->
