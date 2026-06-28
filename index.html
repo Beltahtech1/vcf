@@ -7,32 +7,42 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
-    <p class="subtitle">Join the movement — 1,000 verified members</p>
-  </header>
+  <div class="container">
+    <!-- Hero -->
+    <header class="hero">
+      <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
+      <p class="subtitle">Join the movement — 1,000 verified members</p>
+    </header>
 
-  <section class="form glass">
-    <h2>Register</h2>
-    <form onsubmit="registerUser(event)">
-      <input type="text" id="name" placeholder="Full Name" required>
-      
-      <!-- Country code selector -->
-      <input type="text" id="searchCountry" placeholder="Search country..." onkeyup="filterCountries()">
-      <select id="countryCode"></select>
-      
-      <input type="text" id="phone" placeholder="WhatsApp Number" required>
-      
-      <label class="recaptcha"><input type="checkbox" required> I am Human 🤖</label>
-      <button type="submit" class="liquid-btn">Submit</button>
-    </form>
-    <div id="success"></div>
-  </section>
+    <!-- Registration Form -->
+    <section class="form glass">
+      <h2>Register</h2>
+      <form onsubmit="registerUser(event)">
+        <input type="text" id="name" placeholder="Full Name" required>
 
-  <footer>
-    <p>&copy; 2026 Beltah VCF GAINS</p>
-    <a href="admin.html">Admin Login</a>
-  </footer>
+        <!-- Country search + selector -->
+        <input type="text" id="searchCountry" placeholder="Search country..." onkeyup="filterCountries()">
+        <select id="countryCode" onchange="autoFillCode()"></select>
+
+        <!-- Phone input auto-filled with code -->
+        <input type="text" id="phone" placeholder="WhatsApp Number" required>
+
+        <!-- Modern styled recaptcha -->
+        <label class="recaptcha">
+          <input type="checkbox" required>
+          <span class="checkmark"></span> I am Human
+        </label>
+
+        <button type="submit" class="liquid-btn">Submit</button>
+      </form>
+      <div id="success"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Beltah VCF GAINS</p>
+      <a href="admin.html">Admin Login</a>
+    </footer>
+  </div>
 
   <script src="countries.js"></script>
   <script src="script.js"></script>
