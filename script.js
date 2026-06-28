@@ -67,7 +67,19 @@ function downloadVCF() {
   link.download = "vcf-gains.vcf";
   link.click();
 }
+function handleCountrySelect() {
+  const code = document.getElementById("countryCode").value;
+  const phoneInput = document.getElementById("phone");
 
+  // Auto-fill code into phone field
+  phoneInput.value = code + " ";
+
+  // Hide search box after selection
+  const searchBox = document.getElementById("countrySearchBox");
+  if (searchBox) {
+    searchBox.style.display = "none";
+  }
+}
 // Country list
 function loadCountries() {
   const select = document.getElementById("countryCode");
