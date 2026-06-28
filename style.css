@@ -18,22 +18,29 @@
   font-weight: bold;
   font-size: 0.95em;
   border-radius: 10px 0 0 10px;
-  appearance: none;           /* Modern dropdown arrow */
+  appearance: none;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
-/* Hover + focus states */
 .phone-group select:hover,
 .phone-group select:focus {
   background: #f0f0f0;        /* Light grey highlight */
   outline: none;
   box-shadow: 0 0 8px rgba(0,255,255,0.6);
 }
-
-/* Selected option styling */
 .phone-group select option {
   background: #fff;
   color: #000;
   font-weight: 500;
 }
+
+/* Phone input */
+.phone-group input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-radius: 0 10px 10px 0;
+}
+
