@@ -6,41 +6,26 @@
   width: 90%;
   border-radius: 10px;
   overflow: hidden;
+  background: rgba(255,255,255,0.1);
 }
 
-/* Country selector */
-.phone-group select {
-  flex: 0 0 35%;
+.plus-sign {
   padding: 12px;
-  border: none;
-  background: #fff;           /* White background */
-  color: #000;                /* Black text for visibility */
+  background: #00ffff;
+  color: #111;
   font-weight: bold;
-  font-size: 0.95em;
   border-radius: 10px 0 0 10px;
-  appearance: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.phone-group select:hover,
-.phone-group select:focus {
-  background: #f0f0f0;        /* Light grey highlight */
-  outline: none;
-  box-shadow: 0 0 8px rgba(0,255,255,0.6);
-}
-.phone-group select option {
-  background: #fff;
-  color: #000;
-  font-weight: 500;
 }
 
-/* Phone input */
 .phone-group input {
   flex: 1;
   padding: 12px;
   border: none;
-  background: rgba(255,255,255,0.1);
+  background: transparent;
   color: #fff;
-  border-radius: 0 10px 10px 0;
+  outline: none;
 }
 
+.phone-group input::placeholder {
+  color: #ccc;
+}
