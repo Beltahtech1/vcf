@@ -19,14 +19,26 @@
       <h2>Register</h2>
       <form onsubmit="registerUser(event)">
         <div class="name-group">
-          <input type="text" id="firstName" placeholder="First Name" required>
-          <input type="text" id="lastName" placeholder="Last Name" required>
+          <div class="input-wrapper">
+            <input type="text" id="firstName" required>
+            <label for="firstName">First Name</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="text" id="lastName" required>
+            <label for="lastName">Last Name</label>
+          </div>
         </div>
 
         <div class="phone-group">
           <span class="plus-sign">+</span>
-          <input type="text" id="countryCode" placeholder="Code" required>
-          <input type="text" id="phone" placeholder="Number (no 0)" required>
+          <div class="input-wrapper small">
+            <input type="text" id="countryCode" required>
+            <label for="countryCode">Code</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="text" id="phone" required>
+            <label for="phone">Number (no 0)</label>
+          </div>
         </div>
 
         <label class="recaptcha">
