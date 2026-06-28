@@ -70,6 +70,13 @@ function loadCountries() {
     select.appendChild(opt);
   });
 }
+function autoFillCode() {
+  const code = document.getElementById("countryCode").value;
+  const phoneInput = document.getElementById("phone");
+  if (!phoneInput.value.startsWith(code)) {
+    phoneInput.value = code + " ";
+  }
+}
 
 function filterCountries() {
   const search = document.getElementById("searchCountry").value.toLowerCase();
