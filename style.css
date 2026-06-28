@@ -1,69 +1,101 @@
+/* Background + container */
 body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #eee;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.hero {
-  background: #222;
-  padding: 20px;
+.container {
+  width: 95%;
+  max-width: 500px;
   text-align: center;
-  color: cyan;
 }
 
+/* Hero */
+.hero {
+  margin-bottom: 20px;
+}
 .badge {
-  background: electricblue;
+  background: #00ffff;
   color: #111;
   padding: 5px 10px;
   border-radius: 5px;
 }
+.subtitle {
+  color: #aaa;
+  font-size: 1.1em;
+}
 
-.stats, .regions, .form, .download, .contacts {
-  margin: 20px;
+/* Glass effect */
+.glass {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
   padding: 20px;
-  background: #1a1a1a;
-  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
 }
 
-.progress-bar {
-  background: #333;
-  border-radius: 5px;
-  height: 20px;
-  margin-top: 10px;
-}
-
-#progress {
-  background: cyan;
-  height: 100%;
-  width: 0%;
-  border-radius: 5px;
-}
-
-button {
-  background: rgba(0,255,255,0.2);
-  border: 1px solid cyan;
-  color: cyan;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-}
-
-button:disabled {
-  background: #555;
-  color: #999;
-  cursor: not-allowed;
-}
-
-input {
+/* Inputs */
+input, select {
   display: block;
   margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border-radius: 5px;
+  padding: 12px;
+  width: 90%;
+  border-radius: 10px;
   border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
 }
 
+/* Liquid buttons */
+.liquid-btn {
+  position: relative;
+  padding: 12px 30px;
+  margin: 10px;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #00ffff, #0077ff);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.liquid-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* Modern recaptcha style */
+.recaptcha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  color: #ccc;
+}
+.recaptcha input {
+  display: none;
+}
+.recaptcha .checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid cyan;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+}
+.recaptcha input:checked + .checkmark::after {
+  content: "✔";
+  position: absolute;
+  top: -2px;
+  left: 3px;
+  color: cyan;
+}
