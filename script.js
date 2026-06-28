@@ -14,12 +14,9 @@ function registerUser(e) {
   // Combine into standard format
   const fullNumber = "+" + code + phone;
 
-  // Prevent duplicates
-  let users = JSON.parse(localStorage.getItem("vcfUsers")) || [];
-  if (users.find(u => u.phone === fullNumber)) {
-    alert("This number is already registered!");
-    return;
-  }
+  // Registration logic with duplicate prevention and celebration
+function registerUser(e) {
+  e.preventDefault();
 
   // Confirm reCAPTCHA
   if (!document.getElementById("humanCheck").checked) {
@@ -32,6 +29,7 @@ function registerUser(e) {
   const code = document.getElementById("countryCode").value.trim();
   const phone = document.getElementById("phone").value.trim();
 
+  // Combine into standard format
   const fullNumber = "+" + code + phone;
 
   // Prevent duplicates
@@ -41,6 +39,7 @@ function registerUser(e) {
     return;
   }
 
+  // Save new user
   users.push({ name: firstName + " " + lastName, phone: fullNumber });
   localStorage.setItem("vcfUsers", JSON.stringify(users));
 
@@ -50,28 +49,31 @@ function registerUser(e) {
     <a href="https://chat.whatsapp.com/example" target="_blank">Join WhatsApp Public Group</a>
   `;
 
-  // Celebration animations
+  // Launch celebration
   launchCelebration();
 }
 
+// Celebration animations
 function launchCelebration() {
-  // Balloons
-  for (let i = 0; i < 5; i++) {
+  // Balloons floating up
+  for (let i = 0; i < 6; i++) {
     const balloon = document.createElement("div");
     balloon.className = "balloon";
     balloon.textContent = "🎈";
     balloon.style.left = (10 + i * 15) + "%";
+    balloon.style.animation = "balloons 4s cubic-bezier(0.16, 1, 0.3, 1) forwards";
     document.body.appendChild(balloon);
     setTimeout(() => balloon.remove(), 4000);
   }
 
-  // Fireworks
-  for (let i = 0; i < 3; i++) {
+  // Fireworks burst
+  for (let i = 0; i < 4; i++) {
     const firework = document.createElement("div");
     firework.className = "firework";
     firework.textContent = "🎆";
-    firework.style.left = (30 + i * 20) + "%";
+    firework.style.left = (20 + i * 20) + "%";
     firework.style.top = "50%";
+    firework.style.animation = "fireworks 2s cubic-bezier(0.16, 1, 0.3, 1) forwards";
     document.body.appendChild(firework);
     setTimeout(() => firework.remove(), 2000);
   }
