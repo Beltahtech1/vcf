@@ -46,30 +46,35 @@ body {
   margin-bottom: 20px;
 }
 
+/* Softer distant glow for logo */
 .main-logo {
   width: 220px;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,255,255,0.6), 0 0 50px rgba(255,0,255,0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 10px rgba(0,255,255,0.3), 0 0 25px rgba(255,0,255,0.2);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  animation: slowGlow 10s ease-in-out infinite;
 }
 
-/* Hover glow animation */
+/* Gentle hover effect */
 .main-logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(0,255,255,0.8), 0 0 70px rgba(255,0,255,0.6);
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0,255,255,0.4), 0 0 40px rgba(255,0,255,0.3);
 }
 
-/* Logo link glow pulse */
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 20px rgba(0,255,255,0.5); }
-  50% { box-shadow: 0 0 40px rgba(255,0,255,0.7); }
-  100% { box-shadow: 0 0 20px rgba(0,255,255,0.5); }
+/* Slow-motion glow animation */
+@keyframes slowGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0,255,255,0.3), 0 0 25px rgba(255,0,255,0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0,255,255,0.4), 0 0 50px rgba(255,0,255,0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0,255,255,0.3), 0 0 25px rgba(255,0,255,0.2);
+  }
 }
 
-.logo-link {
-  animation: pulseGlow 6s infinite ease-in-out;
-}
 
 /* Smooth cinematic entrance */
 .container {
