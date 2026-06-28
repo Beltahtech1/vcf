@@ -10,6 +10,34 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+/* Neon animated border */
+.neon-border {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.neon-border::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 24px;
+  background: linear-gradient(270deg, #00ffff, #0077ff, #ff00ff, #00ffff);
+  background-size: 600% 600%;
+  animation: neonMove 12s linear infinite;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+@keyframes neonMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* Smooth cinematic entrance */
 .container {
