@@ -61,6 +61,46 @@ body {
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(-10px); }
 }
+/* Neon border around page */
+.neon-border {
+  border: 4px solid #00ffff;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00ffff, 0 0 50px #0077ff;
+  padding: 20px;
+}
+
+/* Input boxes glass style */
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 12px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  color: #000;
+  outline: none;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.input-wrapper input:hover,
+.input-wrapper input:focus {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 12px #00ffff;
+}
+
+/* Row layout */
+.row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.input-wrapper.small {
+  flex: 0 0 80px; /* small width for country code */
+}
+
+.input-wrapper {
+  flex: 1;
+}
 
 
 /* Glassmorphism panels */
