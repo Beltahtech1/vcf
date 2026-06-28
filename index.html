@@ -6,6 +6,33 @@
   <title>Beltah VCF GAINS</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
+  <div class="bubble-menu fixed">
+  <!-- Logo bubble -->
+  <div class="bubble logo-bubble">
+    <div class="logo-content">
+      <img src="whatsapp-logo.png" alt="WhatsApp Logo" class="bubble-logo">
+    </div>
+  </div>
+
+  <!-- Toggle bubble -->
+  <div class="bubble toggle-bubble">
+    <button class="menu-btn" id="menuToggle">
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </button>
+  </div>
+</div>
+
+<!-- Hidden menu items -->
+<div class="bubble-menu-items fixed" id="bubbleItems" style="display:none;">
+  <ul class="pill-list">
+    <li class="pill-col"><a href="#register" class="pill-link"><span class="pill-label">Register</span></a></li>
+    <li class="pill-col"><a href="#about" class="pill-link"><span class="pill-label">About</span></a></li>
+    <li class="pill-col"><a href="#contact" class="pill-link"><span class="pill-label">Contact</span></a></li>
+  </ul>
+</div>
+
 <body>
   <div class="container fade-in">
     <!-- Hero -->
@@ -17,12 +44,12 @@
       <p class="subtitle">Join the movement — 1,000 verified members</p>
     </header>
 
-    <!-- Registration Form -->
+    <!-- Registration Card -->
     <section class="form glass">
       <h2>Register</h2>
       <form onsubmit="registerUser(event)">
         <!-- Name inputs -->
-        <div class="name-group">
+        <div class="row">
           <div class="input-wrapper">
             <input type="text" id="firstName" required placeholder=" ">
             <label for="firstName">First Name</label>
@@ -34,7 +61,7 @@
         </div>
 
         <!-- Phone inputs -->
-        <div class="phone-group">
+        <div class="row phone-row">
           <span class="plus-sign">+</span>
           <div class="input-wrapper small">
             <input type="text" id="countryCode" required placeholder=" ">
@@ -47,13 +74,18 @@
         </div>
 
         <!-- Recaptcha -->
-        <label class="recaptcha">
-          <input type="checkbox" id="humanCheck" required>
-          <span class="checkmark"></span> I am Human
-        </label>
+        <div class="row">
+          <label class="recaptcha">
+            <input type="checkbox" id="humanCheck" required>
+            <span class="checkmark"></span> I am Human
+          </label>
+        </div>
 
-        <!-- Submit button -->
-        <button type="submit" class="liquid-btn">Submit</button>
+        <!-- Button row -->
+        <div class="row buttons">
+          <button type="submit" class="liquid-btn">Submit</button>
+          <button type="button" class="admin-btn" onclick="window.location.href='admin.html'">Admin Login</button>
+        </div>
       </form>
 
       <!-- Success message -->
@@ -63,7 +95,6 @@
     <!-- Footer -->
     <footer>
       <p>&copy; 2026 Beltah VCF GAINS</p>
-      <a href="admin.html" class="admin-btn">Admin Login</a>
     </footer>
   </div>
 
