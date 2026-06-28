@@ -8,38 +8,34 @@
 </head>
 <body>
   <div class="container fade-in">
-    <!-- Hero -->
     <header class="hero">
       <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
       <p class="subtitle">Join the movement — 1,000 verified members</p>
     </header>
 
     <section class="form glass">
-  <h2>Register</h2>
-  <form onsubmit="registerUser(event)">
-    <div class="name-group">
-      <input type="text" id="firstName" placeholder="First Name" required>
-      <input type="text" id="lastName" placeholder="Last Name" required>
-    </div>
+      <h2>Register</h2>
+      <form onsubmit="registerUser(event)">
+        <div class="name-group">
+          <input type="text" id="firstName" placeholder="First Name" required>
+          <input type="text" id="lastName" placeholder="Last Name" required>
+        </div>
 
-    <!-- Country code + phone number -->
-    <div class="phone-group">
-      <span class="plus-sign">+</span>
-      <input type="text" id="countryCode" placeholder="Country Code" required>
-      <input type="text" id="phone" placeholder="Rest of Number (no 0)" required>
-    </div>
+        <div class="phone-group">
+          <span class="plus-sign">+</span>
+          <input type="text" id="countryCode" placeholder="Code" required>
+          <input type="text" id="phone" placeholder="Number (no 0)" required>
+        </div>
 
-    <!-- Modern styled recaptcha -->
-    <label class="recaptcha">
-      <input type="checkbox" required>
-      <span class="checkmark"></span> I am Human
-    </label>
+        <label class="recaptcha">
+          <input type="checkbox" id="humanCheck" required>
+          <span class="checkmark"></span> I am Human
+        </label>
 
-    <button type="submit" class="liquid-btn">Submit</button>
-  </form>
-  <div id="success"></div>
-</section>
-
+        <button type="submit" class="liquid-btn">Submit</button>
+      </form>
+      <div id="success"></div>
+    </section>
 
     <footer>
       <p>&copy; 2026 Beltah VCF GAINS</p>
@@ -47,7 +43,6 @@
     </footer>
   </div>
 
-  <script src="countries.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
