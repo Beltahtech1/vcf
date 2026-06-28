@@ -1,36 +1,69 @@
 body {
   font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
   margin: 0;
   padding: 0;
+}
+
+.hero {
+  background: #222;
+  padding: 20px;
   text-align: center;
-  background: #f4f4f4;
+  color: cyan;
 }
 
-header {
+.badge {
+  background: electricblue;
+  color: #111;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.stats, .regions, .form, .download, .contacts {
+  margin: 20px;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+.progress-bar {
   background: #333;
-  color: #fff;
-  padding: 20px;
+  border-radius: 5px;
+  height: 20px;
+  margin-top: 10px;
 }
 
-main {
-  padding: 20px;
+#progress {
+  background: cyan;
+  height: 100%;
+  width: 0%;
+  border-radius: 5px;
 }
 
 button {
+  background: rgba(0,255,255,0.2);
+  border: 1px solid cyan;
+  color: cyan;
   padding: 10px 20px;
-  background: #0077cc;
-  color: #fff;
-  border: none;
+  margin: 10px;
+  border-radius: 10px;
   cursor: pointer;
+  backdrop-filter: blur(10px);
 }
 
-button:hover {
-  background: #005fa3;
+button:disabled {
+  background: #555;
+  color: #999;
+  cursor: not-allowed;
 }
 
-footer {
-  background: #333;
-  color: #fff;
+input {
+  display: block;
+  margin: 10px auto;
   padding: 10px;
-  margin-top: 20px;
+  width: 80%;
+  border-radius: 5px;
+  border: none;
 }
+
