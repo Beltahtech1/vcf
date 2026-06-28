@@ -4,22 +4,25 @@ let users = JSON.parse(localStorage.getItem("vcfUsers")) || [];
 function saveUsers() {
   localStorage.setItem("vcfUsers", JSON.stringify(users));
 }
-
 function registerUser(e) {
   e.preventDefault();
-  const name = document.getElementById("name").value.trim();
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const code = document.getElementById("countryCode").value.trim();
   const phone = document.getElementById("phone").value.trim();
-  const code = document.getElementById("countryCode").value;
 
-  const fullNumber = code + phone;
+  // Combine into standard format
+  const fullNumber = "+" + code + phone;
 
+  // Prevent duplicates
+  let users = JSON.parse(localStorage.getItem("vcfUsers")) || [];
   if (users.find(u => u.phone === fullNumber)) {
     alert("This number is already registered!");
     return;
   }
 
-  users.push({ name, phone: fullNumber });
-  saveUsers();
+  users.push({ name: firstName + " " + lastName, phone: fullNumber });
+  localStorage.setItem("vcfUsers", JSON.stringify(users));
 
   document.getElementById("success").innerHTML = `
     ✅ Registration successful! <br>
