@@ -6,34 +6,10 @@
   <title>Beltah VCF GAINS</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
-  <div class="bubble-menu fixed">
-  <!-- Logo bubble -->
-  <div class="bubble logo-bubble">
-    <div class="logo-content">
-      <img src="whatsapp-logo.png" alt="WhatsApp Logo" class="bubble-logo">
-    </div>
-  </div>
-
-  <!-- Toggle bubble -->
-  <div class="bubble toggle-bubble">
-    <button class="menu-btn" id="menuToggle">
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-    </button>
-  </div>
-</div>
-
-<!-- Hidden menu items -->
-<div class="bubble-menu-items fixed" id="bubbleItems" style="display:none;">
-  <ul class="pill-list">
-    <li class="pill-col"><a href="#register" class="pill-link"><span class="pill-label">Register</span></a></li>
-    <li class="pill-col"><a href="#about" class="pill-link"><span class="pill-label">About</span></a></li>
-    <li class="pill-col"><a href="#contact" class="pill-link"><span class="pill-label">Contact</span></a></li>
-  </ul>
-</div>
-
 <body>
+  <!-- Radar background -->
+  <div id="radar-root"></div>
+
   <div class="container fade-in">
     <!-- Hero -->
     <header class="hero">
@@ -48,41 +24,38 @@
     <section class="form glass">
       <h2>Register</h2>
       <form onsubmit="registerUser(event)">
-        <!-- Name inputs -->
-        <div class="row">
-          <div class="input-wrapper">
-            <input type="text" id="firstName" required placeholder=" ">
-            <label for="firstName">First Name</label>
-          </div>
-          <div class="input-wrapper">
-            <input type="text" id="lastName" required placeholder=" ">
-            <label for="lastName">Last Name</label>
-          </div>
+        <!-- First Name -->
+        <div class="input-wrapper">
+          <input type="text" id="firstName" required placeholder=" ">
+          <label for="firstName">First Name</label>
         </div>
 
-        <!-- Phone inputs -->
-        <div class="row phone-row">
-          <span class="plus-sign">+</span>
-          <div class="input-wrapper small">
-            <input type="text" id="countryCode" required placeholder=" ">
-            <label for="countryCode">Code</label>
-          </div>
-          <div class="input-wrapper">
-            <input type="text" id="phone" required placeholder=" ">
-            <label for="phone">Number (no 0)</label>
-          </div>
+        <!-- Last Name -->
+        <div class="input-wrapper">
+          <input type="text" id="lastName" required placeholder=" ">
+          <label for="lastName">Last Name</label>
+        </div>
+
+        <!-- Country Code -->
+        <div class="input-wrapper">
+          <input type="text" id="countryCode" required placeholder=" ">
+          <label for="countryCode">Country Code</label>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="input-wrapper">
+          <input type="text" id="phone" required placeholder=" ">
+          <label for="phone">Phone Number (no 0)</label>
         </div>
 
         <!-- Recaptcha -->
-        <div class="row">
-          <label class="recaptcha">
-            <input type="checkbox" id="humanCheck" required>
-            <span class="checkmark"></span> I am Human
-          </label>
-        </div>
+        <label class="recaptcha">
+          <input type="checkbox" id="humanCheck" required>
+          <span class="checkmark"></span> I am Human
+        </label>
 
         <!-- Button row -->
-        <div class="row buttons">
+        <div class="buttons">
           <button type="submit" class="liquid-btn">Submit</button>
           <button type="button" class="admin-btn" onclick="window.location.href='admin.html'">Admin Login</button>
         </div>
@@ -99,5 +72,32 @@
   </div>
 
   <script src="script.js"></script>
+  <!-- Radar integration script -->
+  <script type="module">
+    import Radar from './Radar.js';
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
+
+    const root = ReactDOM.createRoot(document.getElementById('radar-root'));
+    root.render(
+      <Radar
+        speed={1}
+        scale={0.5}
+        ringCount={10}
+        spokeCount={10}
+        ringThickness={0.05}
+        spokeThickness={0.01}
+        sweepSpeed={1}
+        sweepWidth={2}
+        sweepLobes={1}
+        color="#9f29ff"
+        backgroundColor="#000000"
+        falloff={2}
+        brightness={1}
+        enableMouseInteraction
+        mouseInfluence={0.1}
+      />
+    );
+  </script>
 </body>
 </html>
