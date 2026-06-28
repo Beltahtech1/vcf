@@ -20,12 +20,11 @@
       <form onsubmit="registerUser(event)">
         <input type="text" id="name" placeholder="Full Name" required>
 
-        <!-- Country search + selector -->
-        <input type="text" id="searchCountry" placeholder="Search country..." onkeyup="filterCountries()">
-        <select id="countryCode" onchange="autoFillCode()"></select>
-
-        <!-- Phone input auto-filled with code -->
-        <input type="text" id="phone" placeholder="WhatsApp Number" required>
+        <!-- Phone input with country code selector -->
+        <div class="phone-group">
+          <select id="countryCode" onchange="autoFillCode()"></select>
+          <input type="text" id="phone" placeholder="WhatsApp Number" required>
+        </div>
 
         <!-- Modern styled recaptcha -->
         <label class="recaptcha">
