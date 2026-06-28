@@ -1,9 +1,9 @@
-/* Background + container */
+/* Premium dark background with ambient glow */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
   color: #f0f0f0;
   display: flex;
   justify-content: center;
@@ -11,22 +11,23 @@ body {
   min-height: 100vh;
 }
 
+/* Smooth cinematic entrance */
 .container {
   width: 95%;
   max-width: 500px;
   text-align: center;
-  animation: fadeIn 1.2s ease;
+  animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* Hero */
 .hero h1 {
   color: #00ffff;
-  text-shadow: 0 0 15px #00ffff;
+  text-shadow: 0 0 20px rgba(0,255,255,0.7);
+  letter-spacing: -0.5px;
 }
 .badge {
   background: #00ffff;
@@ -34,72 +35,85 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
 }
-.subtitle { color: #ccc; }
+.subtitle { color: #bbb; }
 
-/* Glass effect */
+/* Glassmorphism panels */
 .glass {
   background: rgba(255,255,255,0.08);
   border-radius: 15px;
   backdrop-filter: blur(12px);
-  padding: 20px;
-  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+  padding: 25px;
+  box-shadow: 0 0 40px rgba(0,255,255,0.2);
   margin: 20px auto;
 }
 
-/* Inputs */
+/* Floating label inputs */
+.input-wrapper {
+  position: relative;
+  flex: 1;
+}
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  outline: none;
+}
+.input-wrapper label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  color: #aaa;
+  font-size: 0.9em;
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.input-wrapper input:focus + label,
+.input-wrapper input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 8px;
+  font-size: 0.75em;
+  color: #00ffff;
+}
+
+/* Name group side by side */
 .name-group {
   display: flex;
   gap: 10px;
-}
-.name-group input {
-  flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+  margin-bottom: 15px;
 }
 
+/* Phone group with + sign */
 .phone-group {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin: 15px auto;
-  width: 90%;
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.1);
 }
 .plus-sign {
-  padding: 12px;
+  padding: 14px;
   background: #00ffff;
   color: #111;
   font-weight: bold;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
 }
-.phone-group input {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  background: transparent;
-  color: #fff;
-}
-.phone-group input::placeholder { color: #ccc; }
 
-/* Buttons */
+/* Buttons with cinematic hover */
 .liquid-btn, .admin-btn {
   display: inline-block;
-  margin-top: 15px;
-  padding: 12px 25px;
+  margin-top: 20px;
+  padding: 14px 30px;
   background: linear-gradient(135deg, #00ffff, #0077ff);
   color: #fff;
   font-weight: bold;
   border-radius: 50px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
 }
 .liquid-btn:hover, .admin-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px cyan;
+  box-shadow: 0 0 25px cyan;
 }
 
 /* Recaptcha */
@@ -107,13 +121,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px 0;
+  margin: 20px 0;
   color: #ccc;
 }
 .recaptcha input { display: none; }
 .recaptcha .checkmark {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border: 2px solid cyan;
   border-radius: 5px;
   margin-right: 10px;
@@ -123,6 +137,6 @@ body {
   content: "✔";
   position: absolute;
   top: -2px;
-  left: 3px;
+  left: 4px;
   color: cyan;
 }
