@@ -13,8 +13,8 @@
       <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
       <p class="subtitle">Join the movement — 1,000 verified members</p>
     </header>
-    <!-- Registration Form -->
-<section class="form glass">
+
+    <section class="form glass">
   <h2>Register</h2>
   <form onsubmit="registerUser(event)">
     <div class="name-group">
@@ -22,15 +22,11 @@
       <input type="text" id="lastName" placeholder="Last Name" required>
     </div>
 
-    <!-- Country search + selector -->
-    <div id="countrySearchBox">
-      <input type="text" id="searchCountry" placeholder="Search country..." onkeyup="filterCountries()">
-    </div>
-
-    <!-- Phone input with country selector -->
+    <!-- Country code + phone number -->
     <div class="phone-group">
-      <select id="countryCode" onchange="handleCountrySelect()"></select>
-      <input type="text" id="phone" placeholder="WhatsApp Number" required>
+      <span class="plus-sign">+</span>
+      <input type="text" id="countryCode" placeholder="Country Code" required>
+      <input type="text" id="phone" placeholder="Rest of Number (no 0)" required>
     </div>
 
     <!-- Modern styled recaptcha -->
@@ -43,6 +39,7 @@
   </form>
   <div id="success"></div>
 </section>
+
 
     <footer>
       <p>&copy; 2026 Beltah VCF GAINS</p>
