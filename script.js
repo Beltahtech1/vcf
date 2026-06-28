@@ -69,6 +69,21 @@ function launchCelebration() {
     setTimeout(() => firework.remove(), 2000);
   }
 }
+// Bubble menu toggle
+const menuBtn = document.getElementById("menuToggle");
+const bubbleItems = document.getElementById("bubbleItems");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("open");
+
+  if (menuBtn.classList.contains("open")) {
+    bubbleItems.style.display = "flex";
+    bubbleItems.style.animation = "fadeIn 0.4s ease forwards";
+  } else {
+    bubbleItems.style.animation = "fadeOut 0.3s ease forwards";
+    setTimeout(() => bubbleItems.style.display = "none", 300);
+  }
+});
 
 // Admin login
 function adminLogin() {
