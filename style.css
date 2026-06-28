@@ -1,8 +1,9 @@
+/* Background + container */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #141e30, #243b55);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #f0f0f0;
   display: flex;
   justify-content: center;
@@ -22,12 +23,20 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Hero */
 .hero h1 {
   color: #00ffff;
   text-shadow: 0 0 15px #00ffff;
 }
+.badge {
+  background: #00ffff;
+  color: #111;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 .subtitle { color: #ccc; }
 
+/* Glass effect */
 .glass {
   background: rgba(255,255,255,0.08);
   border-radius: 15px;
@@ -37,6 +46,7 @@ body {
   margin: 20px auto;
 }
 
+/* Inputs */
 .name-group {
   display: flex;
   gap: 10px;
@@ -75,6 +85,7 @@ body {
 }
 .phone-group input::placeholder { color: #ccc; }
 
+/* Buttons */
 .liquid-btn, .admin-btn {
   display: inline-block;
   margin-top: 15px;
@@ -91,6 +102,7 @@ body {
   box-shadow: 0 0 20px cyan;
 }
 
+/* Recaptcha */
 .recaptcha {
   display: flex;
   align-items: center;
@@ -113,25 +125,4 @@ body {
   top: -2px;
   left: 3px;
   color: cyan;
-}
-
-/* Celebration animations */
-@keyframes balloons {
-  0% { transform: translateY(100vh); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
-}
-@keyframes fireworks {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0); opacity: 0; }
-}
-.balloon, .firework {
-  position: fixed;
-  left: 50%;
-  font-size: 2em;
-  animation: balloons 4s ease forwards;
-}
-.firework {
-  animation: fireworks 2s ease forwards;
 }
