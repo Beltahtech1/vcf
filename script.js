@@ -37,6 +37,11 @@ function adminLogin() {
     alert("Wrong password!");
   }
 }
+function autoFillCode() {
+  const code = document.getElementById("countryCode").value;
+  const phoneInput = document.getElementById("phone");
+  phoneInput.value = code + " ";
+}
 
 function showAdminList() {
   const list = document.getElementById("adminList");
