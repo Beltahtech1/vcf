@@ -62,6 +62,29 @@ body {
   box-shadow: 0 0 40px rgba(0,255,255,0.2);
   margin: 20px auto;
 }
+body {
+  color: #000; /* Black font globally */
+}
+
+.input-wrapper input {
+  background: #fff; /* White input box */
+  color: #000;      /* Black text inside */
+}
+
+.input-wrapper label {
+  color: #555; /* Dark gray labels */
+}
+
+.success-whatsapp {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 14px;
+  background: #25D366; /* WhatsApp green */
+  color: #fff;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(37,211,102,0.6);
+}
 
 /* Floating label inputs */
 .input-wrapper {
