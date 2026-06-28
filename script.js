@@ -42,6 +42,14 @@ function autoFillCode() {
   const phoneInput = document.getElementById("phone");
   phoneInput.value = code + " ";
 }
+function autoFillCode() {
+  const code = document.getElementById("countryCode").value;
+  const phoneInput = document.getElementById("phone");
+  // Only insert code if not already present
+  if (!phoneInput.value.startsWith(code)) {
+    phoneInput.value = code + " ";
+  }
+}
 
 function showAdminList() {
   const list = document.getElementById("adminList");
