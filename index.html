@@ -8,52 +8,59 @@
 </head>
 <body>
   <div class="container fade-in">
-     <!-- Hero -->
+    <!-- Hero -->
     <header class="hero">
-  <div class="logo-row">
-    <img src="whatsapp-logo.png" alt="WhatsApp Logo" class="whatsapp-logo">
-    <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
-  </div>
-  <p class="subtitle">Join the movement — 1,000 verified members</p>
-</header>
+      <div class="logo-row">
+        <img src="whatsapp-logo.png" alt="WhatsApp Logo" class="whatsapp-logo">
+        <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
+      </div>
+      <p class="subtitle">Join the movement — 1,000 verified members</p>
+    </header>
 
     <!-- Registration Form -->
     <section class="form glass">
       <h2>Register</h2>
       <form onsubmit="registerUser(event)">
+        <!-- Name inputs -->
         <div class="name-group">
           <div class="input-wrapper">
-            <input type="text" id="firstName" required>
+            <input type="text" id="firstName" required placeholder=" ">
             <label for="firstName">First Name</label>
           </div>
           <div class="input-wrapper">
-            <input type="text" id="lastName" required>
+            <input type="text" id="lastName" required placeholder=" ">
             <label for="lastName">Last Name</label>
           </div>
         </div>
 
+        <!-- Phone inputs -->
         <div class="phone-group">
           <span class="plus-sign">+</span>
           <div class="input-wrapper small">
-            <input type="text" id="countryCode" required>
+            <input type="text" id="countryCode" required placeholder=" ">
             <label for="countryCode">Code</label>
           </div>
           <div class="input-wrapper">
-            <input type="text" id="phone" required>
+            <input type="text" id="phone" required placeholder=" ">
             <label for="phone">Number (no 0)</label>
           </div>
         </div>
 
+        <!-- Recaptcha -->
         <label class="recaptcha">
           <input type="checkbox" id="humanCheck" required>
           <span class="checkmark"></span> I am Human
         </label>
 
+        <!-- Submit button -->
         <button type="submit" class="liquid-btn">Submit</button>
       </form>
+
+      <!-- Success message -->
       <div id="success"></div>
     </section>
 
+    <!-- Footer -->
     <footer>
       <p>&copy; 2026 Beltah VCF GAINS</p>
       <a href="admin.html" class="admin-btn">Admin Login</a>
