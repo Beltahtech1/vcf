@@ -20,55 +20,20 @@
   border-radius: 10px 0 0 10px;
   appearance: none;           /* Modern dropdown arrow */
   cursor: pointer;
-}
-
-/* Phone input */
-.phone-group input {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  border-radius: 0 10px 10px 0;
-}
-
-/* Name inputs side by side */
-.name-group {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-.name-group input {
-  flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-}
-
-/* Admin login button */
-.admin-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 25px;
-  background: linear-gradient(135deg, #00ffff, #0077ff);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 50px;
-  text-decoration: none;
   transition: all 0.3s ease;
 }
-.admin-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px cyan;
+
+/* Hover + focus states */
+.phone-group select:hover,
+.phone-group select:focus {
+  background: #f0f0f0;        /* Light grey highlight */
+  outline: none;
+  box-shadow: 0 0 8px rgba(0,255,255,0.6);
 }
 
-/* Page transition */
-.container {
-  animation: fadeIn 1.2s ease;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Selected option styling */
+.phone-group select option {
+  background: #fff;
+  color: #000;
+  font-weight: 500;
 }
