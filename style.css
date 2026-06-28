@@ -38,6 +38,30 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+/* Modern glass-style buttons */
+.liquid-btn, .admin-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08); /* glass effect */
+  border: 2px solid rgba(0, 255, 255, 0.6); /* visible neon border */
+  backdrop-filter: blur(12px);
+  transition: all 0.5s ease;
+  box-shadow: 0 0 12px rgba(0,255,255,0.3);
+}
+
+/* Hover glowing effect */
+.liquid-btn:hover, .admin-btn:hover {
+  transform: scale(1.05);
+  border-color: #00ffff;
+  box-shadow: 0 0 25px rgba(0,255,255,0.6), 0 0 50px rgba(0,119,255,0.4);
+  background: rgba(255, 255, 255, 0.15);
+}
+
 /* Centered logo styling */
 .logo-row {
   display: flex;
