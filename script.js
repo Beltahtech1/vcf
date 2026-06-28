@@ -4,17 +4,8 @@ let users = JSON.parse(localStorage.getItem("vcfUsers")) || [];
 function saveUsers() {
   localStorage.setItem("vcfUsers", JSON.stringify(users));
 }
-function registerUser(e) {
-  e.preventDefault();
-  const firstName = document.getElementById("firstName").value.trim();
-  const lastName = document.getElementById("lastName").value.trim();
-  const code = document.getElementById("countryCode").value.trim();
-  const phone = document.getElementById("phone").value.trim();
 
-  // Combine into standard format
-  const fullNumber = "+" + code + phone;
-
-  // Registration logic with duplicate prevention and celebration
+// Registration logic
 function registerUser(e) {
   e.preventDefault();
 
@@ -33,7 +24,6 @@ function registerUser(e) {
   const fullNumber = "+" + code + phone;
 
   // Prevent duplicates
-  let users = JSON.parse(localStorage.getItem("vcfUsers")) || [];
   if (users.find(u => u.phone === fullNumber)) {
     alert("This number is already registered!");
     return;
@@ -41,11 +31,12 @@ function registerUser(e) {
 
   // Save new user
   users.push({ name: firstName + " " + lastName, phone: fullNumber });
-  localStorage.setItem("vcfUsers", JSON.stringify(users));
+  saveUsers();
 
   // Success message
   document.getElementById("success").innerHTML = `
     ✅ Registration successful! <br>
+    <span class="success-whatsapp">📱 WhatsApp Ready</span><br>
     <a href="https://chat.whatsapp.com/example" target="_blank">Join WhatsApp Public Group</a>
   `;
 
@@ -89,25 +80,14 @@ function adminLogin() {
     alert("Wrong password!");
   }
 }
-function autoFillCode() {
-  const code = document.getElementById("countryCode").value;
-  const phoneInput = document.getElementById("phone");
-  phoneInput.value = code + " ";
-}
-function autoFillCode() {
-  const code = document.getElementById("countryCode").value;
-  const phoneInput = document.getElementById("phone");
-  // Only insert code if not already present
-  if (!phoneInput.value.startsWith(code)) {
-    phoneInput.value = code + " ";
-  }
-}
 
+// Show admin list
 function showAdminList() {
   const list = document.getElementById("adminList");
   list.innerHTML = users.map(u => `<p>${u.name} - ${u.phone}</p>`).join("");
 }
 
+// Download VCF
 function downloadVCF() {
   let vcf = "";
   users.forEach(u => {
@@ -119,49 +99,3 @@ function downloadVCF() {
   link.download = "vcf-gains.vcf";
   link.click();
 }
-function handleCountrySelect() {
-  const code = document.getElementById("countryCode").value;
-  const phoneInput = document.getElementById("phone");
-
-  // Auto-fill code into phone field
-  phoneInput.value = code + " ";
-
-  // Hide search box after selection
-  const searchBox = document.getElementById("countrySearchBox");
-  if (searchBox) {
-    searchBox.style.display = "none";
-  }
-}
-// Country list
-function loadCountries() {
-  const select = document.getElementById("countryCode");
-  countries.forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = c.dial_code;
-    opt.textContent = `${c.flag} ${c.name} (${c.dial_code})`;
-    select.appendChild(opt);
-  });
-}
-function autoFillCode() {
-  const code = document.getElementById("countryCode").value;
-  const phoneInput = document.getElementById("phone");
-  if (!phoneInput.value.startsWith(code)) {
-    phoneInput.value = code + " ";
-  }
-}
-
-function filterCountries() {
-  const search = document.getElementById("searchCountry").value.toLowerCase();
-  const select = document.getElementById("countryCode");
-  select.innerHTML = "";
-  countries.filter(c => c.name.toLowerCase().includes(search)).forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = c.dial_code;
-    opt.textContent = `${c.flag} ${c.name} (${c.dial_code})`;
-    select.appendChild(opt);
-  });
-}
-
-window.onload = () => {
-  if (document.getElementById("countryCode")) loadCountries();
-};
