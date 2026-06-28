@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container fade-in">
     <!-- Hero -->
     <header class="hero">
       <h1>Beltah VCF GAINS <span class="badge">✔ Verified</span></h1>
@@ -18,9 +18,12 @@
     <section class="form glass">
       <h2>Register</h2>
       <form onsubmit="registerUser(event)">
-        <input type="text" id="name" placeholder="Full Name" required>
+        <div class="name-group">
+          <input type="text" id="firstName" placeholder="First Name" required>
+          <input type="text" id="lastName" placeholder="Last Name" required>
+        </div>
 
-        <!-- Phone input with country code selector -->
+        <!-- Country selector + phone -->
         <div class="phone-group">
           <select id="countryCode" onchange="autoFillCode()"></select>
           <input type="text" id="phone" placeholder="WhatsApp Number" required>
@@ -39,7 +42,7 @@
 
     <footer>
       <p>&copy; 2026 Beltah VCF GAINS</p>
-      <a href="admin.html">Admin Login</a>
+      <a href="admin.html" class="admin-btn">Admin Login</a>
     </footer>
   </div>
 
